@@ -22,6 +22,12 @@
 		111FF60020B4396700BE6DF0 /* NUDataRecieved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF5FF20B4396700BE6DF0 /* NUDataRecieved.swift */; };
 		111FF60220B4399A00BE6DF0 /* NUArticleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF60120B4399A00BE6DF0 /* NUArticleSource.swift */; };
 		111FF60620B45BFC00BE6DF0 /* NUWebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF60520B45BFC00BE6DF0 /* NUWebKitViewController.swift */; };
+		111FF60820B55D0300BE6DF0 /* NUNewsFeedLongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111FF60720B55D0300BE6DF0 /* NUNewsFeedLongCell.xib */; };
+		111FF60A20B5606D00BE6DF0 /* NUNewsFeedLongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF60920B5606D00BE6DF0 /* NUNewsFeedLongCell.swift */; };
+		111FF60C20B581AC00BE6DF0 /* NUCellsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF60B20B581AC00BE6DF0 /* NUCellsConfigurator.swift */; };
+		111FF60E20B581F200BE6DF0 /* NULongCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF60D20B581F200BE6DF0 /* NULongCellConfigurator.swift */; };
+		111FF61020B5822500BE6DF0 /* NUHighCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF60F20B5822500BE6DF0 /* NUHighCellConfigurator.swift */; };
+		111FF61320B5906700BE6DF0 /* NUSharedArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF61220B5906700BE6DF0 /* NUSharedArticles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +69,12 @@
 		111FF5FF20B4396700BE6DF0 /* NUDataRecieved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUDataRecieved.swift; sourceTree = "<group>"; };
 		111FF60120B4399A00BE6DF0 /* NUArticleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUArticleSource.swift; sourceTree = "<group>"; };
 		111FF60520B45BFC00BE6DF0 /* NUWebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NUWebKitViewController.swift; path = ViewControllers/NUWebKitViewController.swift; sourceTree = "<group>"; };
+		111FF60720B55D0300BE6DF0 /* NUNewsFeedLongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NUNewsFeedLongCell.xib; path = Views/NUNewsFeedLongCell.xib; sourceTree = "<group>"; };
+		111FF60920B5606D00BE6DF0 /* NUNewsFeedLongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NUNewsFeedLongCell.swift; path = Views/NUNewsFeedLongCell.swift; sourceTree = "<group>"; };
+		111FF60B20B581AC00BE6DF0 /* NUCellsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUCellsConfigurator.swift; sourceTree = "<group>"; };
+		111FF60D20B581F200BE6DF0 /* NULongCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NULongCellConfigurator.swift; sourceTree = "<group>"; };
+		111FF60F20B5822500BE6DF0 /* NUHighCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUHighCellConfigurator.swift; sourceTree = "<group>"; };
+		111FF61220B5906700BE6DF0 /* NUSharedArticles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUSharedArticles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +135,8 @@
 				111FF5F620B4071500BE6DF0 /* NUNewsFeedCell.swift */,
 				111FF5F420B403F700BE6DF0 /* NUNewsFeedCell.xib */,
 				111FF60520B45BFC00BE6DF0 /* NUWebKitViewController.swift */,
+				111FF60720B55D0300BE6DF0 /* NUNewsFeedLongCell.xib */,
+				111FF60920B5606D00BE6DF0 /* NUNewsFeedLongCell.swift */,
 			);
 			path = "news url";
 			sourceTree = "<group>";
@@ -161,8 +175,20 @@
 				111FF5F820B40B8C00BE6DF0 /* NUNewsUrlApi.swift */,
 				111FF5FC20B4140B00BE6DF0 /* NUParser.swift */,
 				111FF5FE20B4392900BE6DF0 /* Article */,
+				111FF61120B5823F00BE6DF0 /* Cell Configuration */,
+				111FF61220B5906700BE6DF0 /* NUSharedArticles.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		111FF61120B5823F00BE6DF0 /* Cell Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				111FF60B20B581AC00BE6DF0 /* NUCellsConfigurator.swift */,
+				111FF60D20B581F200BE6DF0 /* NULongCellConfigurator.swift */,
+				111FF60F20B5822500BE6DF0 /* NUHighCellConfigurator.swift */,
+			);
+			path = "Cell Configuration";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				111FF5CF20B402FA00BE6DF0 /* LaunchScreen.storyboard in Resources */,
+				111FF60820B55D0300BE6DF0 /* NUNewsFeedLongCell.xib in Resources */,
 				111FF5CC20B402FA00BE6DF0 /* Assets.xcassets in Resources */,
 				111FF5CA20B402F600BE6DF0 /* Main.storyboard in Resources */,
 				111FF5F520B403F700BE6DF0 /* NUNewsFeedCell.xib in Resources */,
@@ -298,13 +325,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				111FF5F320B4039300BE6DF0 /* NUNewsFeedTableViewController.swift in Sources */,
+				111FF60E20B581F200BE6DF0 /* NULongCellConfigurator.swift in Sources */,
 				111FF5F920B40B8C00BE6DF0 /* NUNewsUrlApi.swift in Sources */,
 				111FF5FD20B4140B00BE6DF0 /* NUParser.swift in Sources */,
+				111FF61320B5906700BE6DF0 /* NUSharedArticles.swift in Sources */,
+				111FF60A20B5606D00BE6DF0 /* NUNewsFeedLongCell.swift in Sources */,
 				111FF60020B4396700BE6DF0 /* NUDataRecieved.swift in Sources */,
 				111FF60220B4399A00BE6DF0 /* NUArticleSource.swift in Sources */,
 				111FF5C520B402F600BE6DF0 /* AppDelegate.swift in Sources */,
+				111FF61020B5822500BE6DF0 /* NUHighCellConfigurator.swift in Sources */,
 				111FF5F720B4071500BE6DF0 /* NUNewsFeedCell.swift in Sources */,
 				111FF5FB20B411E500BE6DF0 /* NUArticle.swift in Sources */,
+				111FF60C20B581AC00BE6DF0 /* NUCellsConfigurator.swift in Sources */,
 				111FF60620B45BFC00BE6DF0 /* NUWebKitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

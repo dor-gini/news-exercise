@@ -18,6 +18,7 @@ struct NUArticle : Codable{
     var urlToImage: String?
     var publishedAt:String?
     
+    var cellType:CellType?
     var image:Data?
     var parsedPublishedTime:String?
 }

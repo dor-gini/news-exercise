@@ -6,43 +6,47 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NUNewsFeedCell" rowHeight="140" id="PUL-Vp-tn1" customClass="NUNewsFeedCell" customModule="news_url" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NUNewsFeedCell" rowHeight="191" id="PUL-Vp-tn1" customClass="NUNewsFeedCell" customModule="news_url" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PUL-Vp-tn1" id="wSr-5N-ft3">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="160.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srz-98-ndL">
-                        <rect key="frame" x="171" y="96" width="187.5" height="13.5"/>
+                        <rect key="frame" x="171" y="147" width="187.5" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A1T-tf-mF5">
-                        <rect key="frame" x="16" y="11" width="343" height="52"/>
+                        <rect key="frame" x="16" y="11" width="343" height="103"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="A1T-tf-mF5" secondAttribute="height" multiplier="1:0.3" id="Vkw-6j-KcV"/>
+                        </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruo-5f-uRd">
-                        <rect key="frame" x="16" y="33" width="46" height="30"/>
+                        <rect key="frame" x="16" y="84" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                         <connections>
                             <action selector="shareButton:" destination="PUL-Vp-tn1" eventType="touchUpInside" id="zrS-gj-7UX"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4r3-1G-UGt">
-                        <rect key="frame" x="16" y="71" width="343" height="17"/>
+                        <rect key="frame" x="16" y="122" width="343" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xE6-2X-dcG">
-                        <rect key="frame" x="16" y="96" width="187.5" height="13.5"/>
+                        <rect key="frame" x="16" y="147" width="187.5" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -51,6 +55,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="srz-98-ndL" secondAttribute="trailing" constant="16" id="6Kb-ry-jqL"/>
                     <constraint firstItem="srz-98-ndL" firstAttribute="top" secondItem="4r3-1G-UGt" secondAttribute="bottom" constant="8" id="9LB-Yd-lTR"/>
+                    <constraint firstItem="A1T-tf-mF5" firstAttribute="centerX" secondItem="wSr-5N-ft3" secondAttribute="centerX" id="BDs-Mg-mrM"/>
                     <constraint firstItem="4r3-1G-UGt" firstAttribute="centerX" secondItem="wSr-5N-ft3" secondAttribute="centerX" id="E7g-O7-nFu"/>
                     <constraint firstItem="A1T-tf-mF5" firstAttribute="top" secondItem="wSr-5N-ft3" secondAttribute="top" constant="11" id="IJ6-eU-87c"/>
                     <constraint firstItem="ruo-5f-uRd" firstAttribute="bottom" secondItem="A1T-tf-mF5" secondAttribute="bottom" id="IbL-RJ-CnW"/>
@@ -74,7 +79,7 @@
                 <outlet property="publishedAtL" destination="xE6-2X-dcG" id="wWk-pH-LHe"/>
                 <outlet property="titleL" destination="4r3-1G-UGt" id="mC4-rX-XYG"/>
             </connections>
-            <point key="canvasLocation" x="-108.5" y="-144"/>
+            <point key="canvasLocation" x="-108.5" y="-118.5"/>
         </tableViewCell>
     </objects>
 </document>

@@ -11,7 +11,7 @@ import UIKit
 
 protocol NUNewsFeedApiDelegate{
     func updateArticles(with articles: [NUArticle])
-    func errorGeetingArticles(error:Error)
+    func errorGetingArticles(error:Error)
     func gotImageData(data:Data, indexPath :IndexPath)
 }
 
@@ -30,7 +30,7 @@ class NUNewsUrlApi {
             
             guard let data = data else { return }
             let articles = NUParser.parseDataToArticles(withData: data)
-            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "fetched articles"), object: nil, userInfo: ["articles":articles])
             DispatchQueue.main.async {
                 guard let del=self.delegate else {return}
                 del.updateArticles(with: articles)
@@ -47,6 +47,7 @@ class NUNewsUrlApi {
         print("Download Started")
         getDataFromUrl(url: url) { data, response, error in
             guard let data = data, error == nil else { return }
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "article image updated"), object: nil, userInfo: ["index": index,"image":data])
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
             DispatchQueue.main.async() {

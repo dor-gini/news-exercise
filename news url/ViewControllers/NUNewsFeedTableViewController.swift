@@ -18,13 +18,14 @@ class NUNewsFeedTableViewController: UIViewController,UITableViewDelegate,UITabl
         self.tableView.reloadData()
     }
     
-    func errorGeetingArticles(error: Error) {
+    func errorGetingArticles(error: Error) {
     
     }
     
     func gotImageData(data: Data, indexPath :IndexPath) {
+        
         guard let cell=self.tableView.cellForRow(at: indexPath) else {return}
-        let customeCell = cell as! NUNewsFeedCell
+        let customeCell = cell as! NUNewsFeedLongCell
         customeCell.articleImg.image=UIImage(data: data)
         self.articleArr![indexPath.row].image=data
         
@@ -36,9 +37,9 @@ class NUNewsFeedTableViewController: UIViewController,UITableViewDelegate,UITabl
         api.delegate=self
         api.getAllArticles()
         NotificationCenter.default.addObserver(self, selector: #selector(shareButton(_:)), name: Notification.Name(rawValue: "shareNotification"), object: nil)
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 140
-//        tableView.reloadData()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 160
+
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,11 +49,20 @@ class NUNewsFeedTableViewController: UIViewController,UITableViewDelegate,UITabl
     }
 
     @objc func shareButton(_ notification: NSNotification){
-        print(self.tableView.indexPath(for: notification.userInfo?["cell"] as! NUNewsFeedCell));
+        
+        let linkToArticle = self.articleArr![(self.tableView.indexPath(for: notification.userInfo?["cell"] as! NUNewsFeedCell)?.row)!].url
+
+        let activityVC : UIActivityViewController = UIActivityViewController(
+            activityItems: [linkToArticle ?? "found a great article!"], applicationActivities: nil)
+        
+        self.present(activityVC, animated: true, completion: nil)
+        
+//        print(self.tableView.indexPath(for: notification.userInfo?["cell"] as! NUNewsFeedCell));
     }
     
     func registerCustomeCells(){
         tableView.register(UINib(nibName: "NUNewsFeedCell", bundle: nil), forCellReuseIdentifier: "NUNewsFeedCell")
+        tableView.register(UINib(nibName: "NUNewsFeedLongCell", bundle: nil), forCellReuseIdentifier: "NUNewsFeedLongCell")
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,9 +85,22 @@ class NUNewsFeedTableViewController: UIViewController,UITableViewDelegate,UITabl
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NUNewsFeedCell", for: indexPath) as! NUNewsFeedCell
+        
+        
+        
+        return NUCellsConfigurator.configureCell(type: self.articleArr![indexPath.row].cellType!, withArticleData: self.articleArr![indexPath.row],inTableView:tableView,atRow: indexPath)
+        
+        
+//        if indexPath.row % 3 != 0{
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "NUNewsFeedCell", for: indexPath) as! NUNewsFeedCell
+//
+//        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NUNewsFeedLongCell", for: indexPath) as! NUNewsFeedLongCell
+//        }
+
+
         if self.articleArr![indexPath.row].parsedPublishedTime == nil{
-        self.articleArr![indexPath.row].parsedPublishedTime=NUParser.parseDateFromString(date: articleArr![indexPath.row].publishedAt!)
+        self.articleArr![indexPath.row].parsedPublishedTime=NUParser.parseDateFromString(date: articleArr![indexPath.row].publishedAt!,forArticalIndex: indexPath.row)
         }
         guard let articles = self.articleArr else {return cell}
         cell.authorL.text = articles[indexPath.row].author
@@ -93,11 +116,12 @@ class NUNewsFeedTableViewController: UIViewController,UITableViewDelegate,UITabl
         }
         let api=NUNewsUrlApi()
         api.delegate=self
-            api.downloadImage(url: url, indexPath: indexPath)}
+            api.downloadImage(url: url, indexPath: indexPath)
+            
+        }
         return cell
     }
-    
-    
+
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
